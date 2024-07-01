@@ -18,35 +18,56 @@ while isPasswordwordAccepted == False:
 #            print("Reject!")
 #    else:
 #        print("Reject!")
+   
 
     userPassword = input("Enter your password... ")
     userPasswordList = list(userPassword)
-    lowerAndCap = False 
-    number = True
+    hasLower = False 
+    hasUpper = False
+    number = False
+    hasSymbol = False
 
-    for character in userPasswordList:
+    print(userPassword)
+
+    for character in userPassword:
         if character.islower():
-            if character.islower():
-                lowerAndCap = True
-            else:
-                lowerAndCap = lowerAndCap
+            hasLower = True
         else:
-            lowerAndCap = lowerAndCap
+            hasLower = hasLower
     
-    for character in userPasswordList:
-        if character.isnumeric:
+
+    for character in userPassword:
+        if character.isupper():
+            hasUpper = True
+        else: 
+            hasUpper = hasUpper
+      
+    for character in userPassword:
+        if character.isnumeric():
             number = True
         else:
             number = number
+
+    for character in userPassword:
+        if character.isalnum():
+            hasSymbol = hasSymbol
+        else:
+            hasSymbol = True
+            
    
     if 8 > len(userPasswordList) < 15:
-        print("Rejected!")
+        print("Rejected!")    
     else:
-        if lowerAndCap == True:
-            if number = True:
-                #NEEDS COMPLETION 
+        if hasLower == True and hasUpper == True:
+            if number == True:
+                if hasSymbol == True:
+                    print("Accepted")
+                else:
+                    print("Rejected!")
+            else:
+                print("Rejected!")
         else:
-            print("Rejected")
+            print("Rejected!")
             
     
 
